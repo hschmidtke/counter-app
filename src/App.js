@@ -2,25 +2,12 @@ import React, { Component } from "react";
 import Counters from "./components/counters";
 import "./App.css";
 import NavBar from "./components/navbar";
+import { generate } from "shortid";
 
 class App extends Component {
   state = {
-    counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 }
-    ]
+    counters: [{ value: 0 }, { value: 0 }, { value: 0 }, { value: 0 }]
   };
-
-  constructor() {
-    super();
-    console.log("App - Constructor");
-  }
-
-  componentDidMount() {
-    console.log("App - Mounted");
-  }
 
   handleIncrement = counter => {
     const counters = [...this.state.counters];
@@ -28,6 +15,15 @@ class App extends Component {
     counters[index] = { ...counter };
     counters[index].value++;
     this.setState({ counters });
+  };
+
+  handleAdd = () => {
+    const { counters } = this.state;
+    const value = 0;
+    const counter = { value };
+    this.setState({
+      counters: [...counters, counter]
+    });
   };
 
   handleReset = () => {
@@ -38,14 +34,12 @@ class App extends Component {
     this.setState({ counters });
   };
 
-  handleDelete = counterId => {
-    console.log("Event Handler Called", counterId);
-    const counters = this.state.counters.filter(c => c.id !== counterId);
+  handleDelete = counter => {
+    const counters = this.state.counters.filter(c => c !== counter);
     this.setState({ counters: counters });
   };
 
   render() {
-    console.log("App - Rendered");
     return (
       <React.Fragment>
         <NavBar
@@ -54,6 +48,7 @@ class App extends Component {
         <main className="container">
           <Counters
             counters={this.state.counters}
+            onAdd={this.handleAdd}
             onReset={this.handleReset}
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}

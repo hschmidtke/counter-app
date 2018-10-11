@@ -2,14 +2,10 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   componentDidUpdate(prevProps, prevState) {
-    console.log("prevProps", prevProps);
-    console.log("prevState", prevState);
+    // console.log("prevProps", prevProps);
+    // console.log("prevState", prevState);
     if (prevProps.counter.value !== this.props.counter.value) {
     }
-  }
-
-  componentWillUnmount() {
-    console.log("Counter - Unmount");
   }
 
   render() {
@@ -24,7 +20,7 @@ class Counter extends Component {
           Increment
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => this.props.onDelete(this.props.counter)}
           className="btn btn-danger btn-sm m-2"
         >
           Delete
