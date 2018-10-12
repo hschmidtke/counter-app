@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Counters from "./components/counters";
 import "./App.css";
 import NavBar from "./components/navbar";
-import { generate } from "shortid";
 
 class App extends Component {
   state = {

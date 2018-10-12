@@ -1,6 +1,7 @@
 import React from "react";
 import Counter from "./counter";
 import { generate } from "shortid";
+
 const Counters = ({
   onAdd,
   onReset,
