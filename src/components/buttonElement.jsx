@@ -1,16 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 
-class ButtonElement extends Component {
-  render() {
-    return (
-      <button
-        onClick={this.props.eventOfButton}
-        className={this.props.classOfButton}
-      >
-        {this.props.textOfButton}
-      </button>
-    );
-  }
-}
+const ButtonElement = ({ eventOfButton, classOfButton, textOfButton }) => (
+  <button onClick={eventOfButton} className={classOfButton}>
+    {textOfButton}
+  </button>
+);
 
 export default ButtonElement;
