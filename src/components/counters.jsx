@@ -11,7 +11,6 @@ class Counters extends Component {
       onIncrement,
       onDecrement
     } = this.props;
-    console.log("counters", counters);
     return (
       <div>
         <button className="btn btn-primary btn-sm m-2" onClick={onAdd}>
