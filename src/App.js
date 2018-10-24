@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Counters from "./components/counters";
 import "./App.css";
 import NavBar from "./components/navbar";
+import { generate } from "shortid";
 
 class App extends Component {
   state = {
-    counters: [{ value: 0 }, { value: 0 }, { value: 0 }, { value: 0 }]
+    counters: [{ key: generate(), value: 0 }, { key: generate(), value: 0 }, { key: generate(), value: 0 }, { key: generate(), value: 0 }]
   };
 
   handleIncrement = counter => {
@@ -28,8 +29,9 @@ class App extends Component {
 
   handleAdd = () => {
     const { counters } = this.state;
+    const key = generate();
     const value = 0;
-    const counter = { value };
+    const counter = { key, value };
     this.setState({
       counters: [...counters, counter]
     });
